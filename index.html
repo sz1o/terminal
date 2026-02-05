@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webfishes terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container" id="terminalContainer">
+        <div class="terminal-header">
+            <span class="terminal-title">webfishes@terminal:~</span>
+            <div class="terminal-buttons">
+                <span class="btn-close"></span>
+                <span class="btn-minimize"></span>
+                <span class="btn-maximize"></span>
+            </div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-output" id="terminalOutput">
+                <p class="welcome-text">Welcome to webfishes terminal</p>
+                <p class="welcome-text">Please enter a command</p>
+                <p class="welcome-text">Type <span class="highlight">$ sudo cmd</span> for commands</p>
+                <p>&nbsp;</p>
+            </div>
+            <div class="terminal-input-line">
+                <span class="prompt">$</span>
+                <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
