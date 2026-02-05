@@ -80,7 +80,7 @@ function loadUblock() {
             setTimeout(() => {
                 terminalContainer.classList.add('fade-out');
                 setTimeout(() => {
-                    window.location.href = 'ublock.html';
+                    window.location.href = 'ublock-games.html';
                 }, 500);
             }, 500);
         }
