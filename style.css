@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0a0a;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 800px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
+    border: 2px solid #00ff00;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.terminal-header {
+    background: #2a2a2a;
+    padding: 12px 16px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00ff00;
+}
+
+.terminal-title {
+    color: #00ff00;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn-close {
+    background: #ff5f56;
+}
+
+.btn-minimize {
+    background: #ffbd2e;
+}
+
+.btn-maximize {
+    background: #27c93f;
+}
+
+.terminal-body {
+    padding: 20px;
+    min-height: 400px;
+}
+
+.terminal-output {
+    color: #00ff00;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.welcome-text {
+    margin: 8px 0;
+}
+
+.highlight {
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prompt {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.terminal-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    outline: none;
+}
+
+.terminal-input::selection {
+    background: #00ff00;
+    color: #1a1a1a;
+}
+
+.command-output {
+    color: #00ff00;
+    margin: 8px 0;
+}
+
+.error {
+    color: #ff5555;
+}
+
+.loading {
+    color: #ffff00;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+}
