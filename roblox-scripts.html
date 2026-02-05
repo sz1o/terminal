@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webfishes scripts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            font-family: 'Courier New', monospace;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-align: center;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            opacity: 0;
+            animation: fadeInTitle 1s ease-in forwards, neonGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeInTitle {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff;
+            }
+            to {
+                text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 50px #00ffff, 0 0 60px #00ffff;
+            }
+        }
+
+        .scripts-container {
+            width: 100%;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeInScripts 1s ease-in 0.5s forwards;
+        }
+
+        @keyframes fadeInScripts {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .script-box {
+            background: rgba(26, 26, 26, 0.9);
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .script-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+
+        .script-title {
+            font-size: 24px;
+            color: #00ffff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #00ffff;
+        }
+
+        .script-content {
+            background: #0a0a0a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
+            color: #00ff00;
+            font-size: 13px;
+            max-height: 200px;
+            overflow-y: auto;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            position: relative;
+        }
+
+        .copy-btn {
+            background: #00ffff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background 0.3s, transform 0.1s;
+        }
+
+        .copy-btn:hover {
+            background: #00cccc;
+            transform: scale(1.05);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 0, 0, 0.8);
+            color: #fff;
+            border: 2px solid #ff0000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 0, 0, 1);
+        }
+
+        .script-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .script-content::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .script-content::-webkit-scrollbar-thumb {
+            background: #00ffff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+    
+    <a href="index.html" class="back-btn">← Back to Terminal</a>
+
+    <div class="content">
+        <h1 class="title">webfishes scripts</h1>
+        
+        <div class="scripts-container">
+            <div class="script-box">
+                <h2 class="script-title">Main Script</h2>
+                <div class="script-content" id="mainScript">-- Main Script Coming Soon!
+-- This is where your main exploit script will go
+print("webfishes main script loaded!")</div>
+                <button class="copy-btn" onclick="copyScript('mainScript')">Copy Script</button>
+            </div>
+
+            <div class="script-box">
+                <h2 class="script-title">Just a Baseplate</h2>
+                <div class="script-content" id="baseplateScript">-- Baseplate Script
+-- Simple script for baseplate
+print("Baseplate script loaded!")
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50</div>
+                <button class="copy-btn" onclick="copyScript('baseplateScript')">Copy Script</button>
+            </div>
+
+            <div class="script-box">
+                <h2 class="script-title">Prison Life</h2>
+                <div class="script-content" id="prisonScript">-- Prison Life Script
+-- Advanced prison life features
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))()
+print("Prison Life script loaded!")</div>
+                <button class="copy-btn" onclick="copyScript('prisonScript')">Copy Script</button>
+            </div>
+
+            <div class="script-box">
+                <h2 class="script-title">More Scripts Soon...</h2>
+                <div class="script-content">-- Check back later for more scripts!
+-- webfishes is constantly updating
+
+print("Stay tuned for more awesome scripts!")</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,.<>?';
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#666'; // Gray color
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Copy script function
+        function copyScript(scriptId) {
+            const scriptContent = document.getElementById(scriptId).textContent;
+            navigator.clipboard.writeText(scriptContent).then(() => {
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = '#00ff00';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '#00ffff';
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        }
+    </script>
+</body>
+</html>
